@@ -3,9 +3,22 @@ const exphbs = require('express-handlebars')
 
 const app = express()
 
+//Configurar pasta publc para arquivos estático
+app.use(express.static('public'))
+
 //configurar o hasndlebars como template engine
 app.engine('handlebars', exphbs.engine())
 app.set('view engine', 'handlebars')
+
+app.get('/post', (req, res) => {
+    const post = {
+        title: 'Aprender na marra',
+        category: 'Javascript',
+        body: "este arquivo vai te ajudar a aprender node.JS (ou tentar rs)",
+        coments: 4
+    }
+    res.render('blogpost', { post })
+})
 
 app.get('/dashboard', (req, res) => {
     const itens = ['item 1', 'item 2', 'item 3']
