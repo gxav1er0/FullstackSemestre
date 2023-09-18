@@ -1,0 +1,10 @@
+<main>
+  <h2>Selecione o produto desejado</h2>
+  <ul> 
+    {{#each products}}
+      <li>
+        <a href="/produto/{{id}}">{{name}} - R$ {{price}}</a>
+      </li>
+    {{/each}}
+  </ul>
+</main>
