@@ -1,3 +1,4 @@
+const { response } = require("express");
 const express = require("express")
 const exphbs =  require("express-handlebars")
 const mysql = require("mysql")
@@ -15,8 +16,30 @@ app.use(express.urlencoded({
 
 app.use(express.json())
 
+app.post("/register/save", (req, res) =>{
+   const {title, pg_qtd} = req.body
+
+   const query = `
+   INSERT INTO films (title, pg_qtd)
+   VALUES ('${title}', '${pg_qtd}')
+   `
+
+   conn.query(query, (error) =>{
+    if (error) {
+        console.log(error)
+        return
+    } 
+
+    res.redirect("/")
+   })
+})
+
+app.get("/register", (req, res) => {
+    res.render("register")
+})
+
 app.get("/", (req, res) =>{
-    resposta.render("home")
+    res.render("home")
 })
 
 const conn = mysql.createConnection({
