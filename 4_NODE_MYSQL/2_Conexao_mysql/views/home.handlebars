@@ -1,1 +1,11 @@
-<h2>HOME</h2>
+<main>
+    <h2>HOME</h2>
+
+    {{#each film}}
+    <div class = "filme">
+        <h3>Titulo: {{title}}</h3>
+        <p>Quantidade de horas: {{this.pg_qtd}} Horas</p>
+    </div>
+
+{{/each}}
+</main>

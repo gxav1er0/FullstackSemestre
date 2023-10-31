@@ -39,7 +39,19 @@ app.get("/register", (req, res) => {
 })
 
 app.get("/", (req, res) =>{
-    res.render("home")
+
+    const consult = `select* from films`
+
+    conn.query(consult, (error, data) => {
+        if (error) {
+            return console.log (error)
+        }
+
+        const film = data
+
+        res.render("home", ({film}))
+    })
+
 })
 
 const conn = mysql.createConnection({

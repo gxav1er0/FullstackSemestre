@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+body{
+    padding: 3rem;
+}
+
+ul, li{
+    list-style: none;
+}
+
+header{
+    margin-bottom: 3rem;
+}
+
+header ul{
+    display: flex;
+    gap: 3rem;
+}
+
+.filme{
+    border: 1px solid red;
+    width: 30rem;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.filme + .filme {
+    margin-top: 1rem;
+}
