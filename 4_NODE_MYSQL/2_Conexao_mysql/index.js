@@ -34,6 +34,24 @@ app.post("/register/save", (req, res) =>{
    })
 })
 
+app.get("/film/:id_film", (req, res) =>{
+    const id_film = req.params.id_film
+    const sql = `
+            SELECT * FROM films
+            WHERE id_film =${id_film}
+    `
+
+    conn.query(sql, (error, data) =>{
+        if (error){
+            return console.log(error)
+        }
+
+        const film = data[0]
+
+        res.render("film", {film})
+    })
+})
+
 app.get("/register", (req, res) => {
     res.render("register")
 })
