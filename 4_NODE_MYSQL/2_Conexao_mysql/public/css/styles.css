@@ -4,7 +4,8 @@
     box-sizing: border-box;
 
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
+    background: black;
+    color: white;
 }
 
 body{
@@ -24,6 +25,9 @@ header ul{
     gap: 3rem;
 }
 
+main > h2{
+    margin-bottom: 1rem;
+}
 .filme{
     border: 1px solid red;
     width: 30rem;
@@ -33,4 +37,41 @@ header ul{
 
 .filme + .filme {
     margin-top: 1rem;
+}
+
+.buttons{
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.buttons a{
+    display: block;
+    text-decoration: none;
+    border-radius: .5rem;
+    padding: .5rem;
+}
+
+.buttons .mais{
+    border:1px solid yellow;
+    background: yellow;
+    color: black;
+    font-weight: bolder;
+}
+
+.buttons .mais:hover{
+    background: black;
+    color: yellow;
+}
+
+.buttons .editar{
+    border:1px solid rgb(235, 97, 97);
+    background: rgb(235, 97, 97);
+    color: black;
+    font-weight: bolder;
+}
+
+.buttons .editar:hover{
+    background: black;
+    color: rgb(235, 97, 97);
 }

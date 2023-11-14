@@ -5,7 +5,10 @@
     <div class = "filme">
         <h3>Titulo: {{title}}</h3>
         <p>Quantidade de horas: {{this.pg_qtd}} Horas</p>
-        <a href="/film/{{this.id_film}}">Ver Mais</a>
+        <div class="buttons">
+             <a href="/film/{{this.id_film}}" class = "mais">Ver Mais</a>
+             <a href="/update/{{this.id_film}}" class = "editar">Editar</a>
+        </div>
     </div>
 
 {{/each}}

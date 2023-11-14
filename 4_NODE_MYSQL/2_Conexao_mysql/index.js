@@ -16,6 +16,25 @@ app.use(express.urlencoded({
 
 app.use(express.json())
 
+app.post("/update/save", (req, res) =>{
+    const {id_film, title, pg_qtd} = req.body
+ 
+    const sql = `
+    UPDATE films
+    SET title = '${title}', pg_qtd = '${pg_qtd}'
+    WHERE id_film = ${id_film}
+    `
+ 
+    conn.query(sql, (error) =>{
+     if (error) {
+         console.log(error)
+         return
+     } 
+ 
+     res.redirect("/")
+    })
+})
+
 app.post("/register/save", (req, res) =>{
    const {title, pg_qtd} = req.body
 
@@ -32,6 +51,25 @@ app.post("/register/save", (req, res) =>{
 
     res.redirect("/")
    })
+})
+
+app.get("/update/:id_film", (req, res) =>{
+    const id_film = req.params.id_film
+    const sql = `
+         SELECT * FROM films
+            WHERE id_film =${id_film}
+        `
+    conn.query(sql, (error, data) =>{
+        if (error){
+            return console.log(error)
+        }
+
+        const film = data[0]
+
+        res.render('update', {film})
+
+    })
+    
 })
 
 app.get("/film/:id_film", (req, res) =>{
