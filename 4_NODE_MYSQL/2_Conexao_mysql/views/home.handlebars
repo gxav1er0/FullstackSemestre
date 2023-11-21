@@ -8,6 +8,10 @@
         <div class="buttons">
              <a href="/film/{{this.id_film}}" class = "mais">Ver Mais</a>
              <a href="/update/{{this.id_film}}" class = "editar">Editar</a>
+             <form action="/delete" method="POST">
+                <input type="hidden" name ="id_film" value="{{this.id_film}}">
+                <button class="excluir">Excluir</button>
+             </form>
         </div>
     </div>
 

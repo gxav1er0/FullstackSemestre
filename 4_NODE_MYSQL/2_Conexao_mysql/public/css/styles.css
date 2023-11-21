@@ -45,11 +45,13 @@ main > h2{
     gap: 1rem;
 }
 
-.buttons a{
+.buttons a,
+.buttons button {
     display: block;
     text-decoration: none;
     border-radius: .5rem;
     padding: .5rem;
+    font-size: 1rem;
 }
 
 .buttons .mais{
@@ -65,13 +67,26 @@ main > h2{
 }
 
 .buttons .editar{
-    border:1px solid rgb(235, 97, 97);
-    background: rgb(235, 97, 97);
+    border:1px solid rgb(255, 255, 255);
+    background: rgb(255, 255, 255);
     color: black;
     font-weight: bolder;
 }
 
 .buttons .editar:hover{
     background: black;
+    color: rgb(255, 255, 255);
+}
+
+.buttons .excluir{
+    border:1px solid rgb(235, 97, 97);
+    background: rgb(235, 97, 97);
+    color: black;
+    font-weight: bolder;
+}
+
+.buttons .excluir:hover{
+    background: black;
     color: rgb(235, 97, 97);
+    cursor: pointer;
 }

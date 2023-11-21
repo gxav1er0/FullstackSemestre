@@ -18,6 +18,8 @@ app.use(express.json())
 
 app.post("/update/save", (req, res) =>{
     const {id_film, title, pg_qtd} = req.body
+
+    console.log(id_film)
  
     const sql = `
     UPDATE films
@@ -33,6 +35,23 @@ app.post("/update/save", (req, res) =>{
  
      res.redirect("/")
     })
+})
+
+app.post("/delete", (req, res) =>{
+    const {id_film} = req.body
+
+    const sql = `
+        DELETE FROM films
+        WHERE id_film = ${id_film}
+    `
+    conn.query(sql, (error) =>{
+        if (error) {
+            return console.log(error)
+        }
+        
+        res.redirect("/")
+    })
+
 })
 
 app.post("/register/save", (req, res) =>{
